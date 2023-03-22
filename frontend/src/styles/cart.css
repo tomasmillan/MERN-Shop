@@ -1,0 +1,326 @@
+.cartContainer {
+  display: flex;
+  margin: 1.5rem;
+  flex-flow: column;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.cartProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cartProduct img {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 5px;
+  border: transparent;
+  object-fit: contain;
+}
+.cartTitles {
+  display: none;
+}
+.cartItem {
+  background-color: rgba(224, 227, 229, 0.315);
+  margin: 1rem 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.cartItem h3 {
+  text-align: center;
+  margin-top: 1rem;
+}
+.cartItem p {
+  visibility: hidden;
+}
+
+.cartProduct button {
+  border: transparent;
+  background-color: rgb(160, 160, 160);
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: 0.5s all ease-in-out;
+  width: 100%;
+}
+.cartProduct button:hover {
+  background-color: rgb(243, 140, 140);
+  color: black;
+}
+.cartQuantity {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 130px;
+  max-width: 100%;
+  border: 0.5px solid rgb(177, 177, 177);
+  border-radius: 5px;
+}
+.cartQuantity button {
+  border: transparent;
+  background: transparent;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgb(186, 187, 187);
+  padding-top: 2rem;
+  width: 60%;
+}
+.cartCheckout {
+  width: 270px;
+  max-width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border-radius: 5px;
+  background-color: rgba(0, 128, 0, 0.152);
+}
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.385);
+  margin-bottom: 10px;
+}
+.subtotal span {
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 1rem 1rem 9px 1rem;
+}
+.amount {
+  font-weight: 700;
+}
+.cartCheckout p {
+  font-size: 14px;
+  font-weight: 200;
+  margin: 0.2rem 0 6px 0.8rem;
+  line-height: 14px;
+}
+.cartCheckout button {
+  width: 150px;
+  max-width: 100%;
+  height: 2.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 1.15px;
+  border: 0.5px solid rgb(86, 137, 219);
+  cursor: pointer;
+  transition: 0.6s all linear;
+}
+.primary {
+  margin: 0.5rem 3.5rem;
+  color: white;
+  background: rgb(47, 58, 145);
+}
+.secondary {
+  margin: 0 3.5rem;
+}
+.secondary a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+  transition: 0.6s all linear;
+  font-size: 12px;
+}
+.primary:hover,
+.secondary:hover {
+  color: rgb(54, 51, 51);
+  background: rgb(183, 188, 231);
+}
+.secondary a:hover {
+  font-weight: 500;
+  color: rgb(54, 51, 51);
+}
+.cartEmpty {
+  min-height: 30vh;
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: center;
+}
+.count {
+  padding: 0.7rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.cartTotalPrice {
+  justify-self: right;
+  padding-right: 0.8rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.clearCart {
+  width: 150px;
+  max-width: 100%;
+  height: 2.4rem;
+  border-radius: 8px;
+  font-weight: 400;
+  letter-spacing: 1.15px;
+  border: 0.5px solid rgb(187, 187, 187);
+  color: gray;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.6s all linear;
+}
+.clearCart:hover {
+  font-weight: 500;
+  color: rgb(46, 44, 44);
+  font-size: 1rem;
+  background-color: rgb(216, 216, 211);
+}
+
+@media (min-width: 900px) {
+  .cartContainer {
+    padding: 2rem 4rem;
+  }
+  .cartContainer h2 {
+    font-weight: 400;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .cartTitles {
+    margin: 2rem 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .cartTitles h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cartTitles,
+  .cartItem {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    column-gap: 0.5rem;
+    background: transparent;
+    max-width: 100%;
+  }
+  .cartItem {
+    border-top: 1px solid rgb(187, 187, 187);
+    padding: 1rem 0;
+  }
+  .cartItem p {
+    visibility: visible;
+  }
+  .cartItem h3 {
+    margin-top: 0;
+    margin-left: -1.5rem;
+  }
+  .cartProduct img {
+    margin-right: 1rem;
+  }
+  .cartProduct button {
+    width: 50px;
+    margin-top: 12px;
+  }
+  .cartProduct {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .cartQuantity {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 130px;
+    max-width: 100%;
+    border: 0.5px solid rgb(177, 177, 177);
+    border-radius: 5px;
+    text-align: center  ;
+  }
+  .cartItem .cartQuantity {
+    justify-self: center;
+  }
+  .cartQuantity button {
+    border: transparent;
+    background: transparent;
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .cartItems, .cartTitles {
+    width: 100%;
+  }
+  .cartPrice {
+    text-align: center;
+  }
+  .cartTotalPrice, .cartTotalQuantity {
+    text-align: center;
+    justify-self: center;
+  }
+  .cartSummary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid rgb(186, 187, 187);
+    padding-top: 2rem;
+    width: 100%;
+  }
+  .bagIcon {
+    color: rgb(79, 79, 79);
+    font-size: 4rem;
+  }
+  .secondary a {
+    font-size: 1rem;
+  }
+  .cartEmpty p {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  .startShopping {
+    border: 1px solid rgb(183, 188, 231);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border-radius: 5px;
+    background: rgb(11, 11, 102);
+    transition: 0.5s all linear;
+  }
+  .startShopping a {
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+  }
+  .startShopping span {
+    margin-top: 1.3rem;
+    margin-left: 0.2rem;
+  }
+  .startShopping:hover {
+    transform: scale(1.02);
+    box-shadow: 5px 3px 11px -1px rgba(0, 0, 0, 0.75);
+    background: rgb(86, 101, 205);
+  }
+  .cartLogin {
+    background-color: yellow;
+    color: black;
+  }
+}
