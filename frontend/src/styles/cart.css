@@ -84,9 +84,10 @@
   width: 60%;
 }
 .cartCheckout {
-  width: 270px;
   max-width: 100%;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
   margin-top: 1rem;
   border-radius: 5px;
   background-color: rgba(0, 128, 0, 0.152);
@@ -123,12 +124,12 @@
   transition: 0.6s all linear;
 }
 .primary {
-  margin: 0.5rem 3.5rem;
+  margin: 0.5rem auto;
   color: white;
   background: rgb(47, 58, 145);
 }
 .secondary {
-  margin: 0 3.5rem;
+  margin: 0.3rem auto;
 }
 .secondary a {
   text-decoration: none;
@@ -185,6 +186,19 @@
   color: rgb(46, 44, 44);
   font-size: 1rem;
   background-color: rgb(216, 216, 211);
+}
+.startShopping {
+  background: rgb(11, 11, 102);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.startShopping a {
+  font-size: 1rem;
+}
+.iconCart {
+  margin-right: 10px;
 }
 
 @media (min-width: 900px) {
@@ -303,16 +317,9 @@
   .startShopping a {
     text-decoration: none;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 1.4rem;
     color: rgb(255, 255, 255);
     font-weight: 600;
-  }
-  .startShopping span {
-    margin-top: 1.3rem;
-    margin-left: 0.2rem;
   }
   .startShopping:hover {
     transform: scale(1.02);

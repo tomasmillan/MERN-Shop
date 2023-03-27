@@ -46,7 +46,7 @@ const Cart = () => {
           <p>Tu carrito esta vacio</p>
           <div className="startShopping">
             <Link to="/">
-              <BiArrowBack />
+              <BiArrowBack className="iconCart"/>
               <span>No te quedes sin tu compra</span>
             </Link>
           </div>
