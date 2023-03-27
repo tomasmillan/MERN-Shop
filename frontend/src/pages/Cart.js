@@ -99,7 +99,7 @@ const Cart = () => {
               </div>
               <p>Impuestos y costo de envio se agregaran en el checkout</p>
               {auth._id ? (
-                <PayButton cartItem={cart.cartItems} />
+                <PayButton cartItems={cart.cartItems} />
               ) : (
                 <button
                   className="primary cartLogin"

@@ -9,21 +9,20 @@ const PayButton = ({ cartItems }) => {
     axios
       .post(`${url}/payment`, {
         cartItems,
-        userId: user.id,
+        userId: user._id,
       })
-      .then((res) => {
-        if (res.data.url) {
-          window.location.href = res.data.url;
+      .then((response) => {
+        if (response.data.url) {
+          window.location.href = response.data.url;
         }
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch((err) => console.log(err.message));
   };
+
   return (
     <>
-      <button className="primary" onClick={() => handleCheckout()}>
-        Pagar
+      <button onClick={() => handleCheckout()} className="primary">
+        Check out
       </button>
     </>
   );

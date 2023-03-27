@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const products = require("./products");
 const register = require("./routes/register");
 const login = require("./routes/login");
+const contactform = require("./routes/contactform");
 const payment = require('./routes/payment');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use("/api/register", register);
 app.use("/api/login", login);
 app.use("/api/payment", payment);
+app.use("/api/send", contactform);
 
 
 app.get("/", (req, res) => {
