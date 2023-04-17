@@ -7,6 +7,8 @@ const register = require("./routes/register");
 const login = require("./routes/login");
 const contactform = require("./routes/contactform");
 const payment = require('./routes/payment');
+const mercadopago = require("./routes/mercadopago");
+const productsRoute = require("./routes/products");
 
 const app = express();
 
@@ -19,7 +21,8 @@ app.use("/api/register", register);
 app.use("/api/login", login);
 app.use("/api/payment", payment);
 app.use("/api/send", contactform);
-
+app.use("/api/mercadopago", mercadopago);
+app.use("/api/products", productsRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Server Shop");

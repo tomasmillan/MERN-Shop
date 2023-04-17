@@ -22,8 +22,8 @@ const Navbar = () => {
   };
   const navigateFunction = useNavigate();
   const navigate = () => {
-    navigateFunction('/')
-  }
+    navigateFunction("/");
+  };
 
   return (
     <header>
@@ -61,14 +61,21 @@ const Navbar = () => {
             <span>{cartTotalQuantity}</span>
           </Link>
           {auth._id ? (
-            <Logout
-              onClick={() => {
-                dispatch(logoutUser(null));
-                toast.warning("Cerraste la seion!");
-              }}
-            >
-              <RiLogoutCircleRFill onClick={showNav} />
-            </Logout>
+            <Links>
+              {auth.isAdmin ? (
+                <div>
+                  <Link to="/admin/summary">admin</Link>
+                </div>
+              ) : null}
+              <div
+                onClick={() => {
+                  dispatch(logoutUser(null));
+                  toast.warning("Cerraste la seion!");
+                }}
+              >
+                <RiLogoutCircleRFill onClick={showNav} />
+              </div>
+            </Links>
           ) : (
             <AuthLink>
               <Link to={"/login"} className="links">
@@ -95,9 +102,15 @@ const AuthLink = styled.div`
   color: white;
   padding-right: 12px;
 `;
-const Logout = styled.div`
-  color: blue;
-  cursor: pointer;
-  font-size: 1.5rem;
-  padding-right: 12px;
+const Links = styled.div`
+  color: white;
+  display: flex;
+
+  div {
+    cursor: pointer;
+
+    &:last-child {
+      margin-left: 2rem;
+    }
+  }
 `;

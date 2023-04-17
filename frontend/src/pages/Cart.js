@@ -12,13 +12,14 @@ import {
   getTotals,
   removeFromCart,
 } from "../features/cartSlice";
-import PayButton from "../components/PayButton";
+// import PayButton from "../components/PayButton";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
 
   useEffect(() => {
     dispatch(getTotals());
@@ -61,9 +62,9 @@ const Cart = () => {
           </div>
           <div className="cartItems">
             {cart.cartItems?.map((cartItem) => (
-              <div className="cartItem" key={cartItem.id}>
+              <div className="cartItem" key={cartItem._id}>
                 <div className="cartProduct">
-                  <img src={cartItem.image} alt={cartItem.name} />
+                  <img src={cartItem.image.url} alt={cartItem.name} />
                   <div>
                     <h3>{cartItem.name}</h3>
                     <p>{cartItem.description}</p>
@@ -99,7 +100,8 @@ const Cart = () => {
               </div>
               <p>Impuestos y costo de envio se agregaran en el checkout</p>
               {auth._id ? (
-                <PayButton cartItems={cart.cartItems} />
+               // <PayButton cartItems={cart.cartItems} />
+                <button onClick={() => navigate('/mercadopagoform')} className='primary'>Pagar</button>
               ) : (
                 <button
                   className="primary cartLogin"

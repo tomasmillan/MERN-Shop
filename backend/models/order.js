@@ -3,8 +3,19 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
+    name: { type: String, required: true, minlength: 3, maxlength: 25 },
+    email: {
+      type: String,
+      required: true,
+      minlength: 3,
+      maxlength: 200,
+      unique: true,
+    },
     products: [
-      { productId: { type: String }, quantity: { type: Number, default: 1 } },
+      {
+        productId: { type: String }, 
+        quantity: { type: Number, default: 1 },
+      },
     ],
     subtotal: { type: Number, required: true },
     total: { type: Number, required: true },

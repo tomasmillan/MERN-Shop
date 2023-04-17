@@ -26,7 +26,6 @@ class ContactForm extends Component {
     axios
       .post(`${url}/send`, { name, email, message, subject })
       .then((response) => {
-        console.log(response.data);
         this.setState({ status: "Email sent successfully" });
         this.resetForm();
       })

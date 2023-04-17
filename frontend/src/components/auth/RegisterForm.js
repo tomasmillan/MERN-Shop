@@ -22,7 +22,6 @@ const RegisterForm = () => {
     password: "",
   });
 
-  console.log(auth);
   const handleSubmmit = (e) => {
     e.preventDefault();
     dispatch(registerUser(user));

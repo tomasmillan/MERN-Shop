@@ -31,8 +31,7 @@ router.post("/", async (req, res) => {
       },
       quantity: item.cartQuantity,
     };
-  })
-
+  });
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -139,7 +138,7 @@ router.post(
 
     // Check if webhook signing is configured.
     let webhookSecret;
-    //webhookSecret = process.env.STRIPE_WEB_HOOK;
+    // webhookSecret = process.env.STRIPE_WEB_HOOK;
 
     if (webhookSecret) {
       // Retrieve the event by verifying the signature using the raw body and secret.
@@ -187,3 +186,64 @@ router.post(
 );
 
 module.exports = router;
+
+
+
+// const express = require("express");
+// const mercadopago = require("mercadopago");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const router = express.Router();
+
+// const { Order } = require("../models/order");
+
+// router.post("/", async (req, res) => {
+//   const { userId, cartItems} = req.body;
+//   const preferences = {
+//     items: cartItems.map( item => {
+//       return {
+//         title: item.name,
+//         quantity: item.cartQuantity,
+//         unit_price: item.price,
+//       }
+//     }),
+//     back_urls: {
+//       success: `${process.env.CLIENT_URL}/checkoutSuccess`,
+//       failure: `${process.env.CLIENT_URL}/cart`,
+//     },
+//     auto_return: 'approved', 
+//   }
+//   try {
+//     mercadopago.configurations.setAccessToken(process.env.ACCESS_TOKEN);
+//     const paymentData = {
+//       transaction_amount: req.body.transaction_amount,
+//       token: req.body.token,
+//       description: req.body.description,
+//       installments: Number(req.body.installments),
+//       payment_method_id: req.body.paymentMethodId,
+//       issuer_id: req.body.issuer,
+//       payer: {
+//         email: req.body.payer.email,
+//         identification: {
+//           type: req.body.payer.docType,
+//           number: req.body.payer.docNumber,
+//         },
+//       },
+//     };
+//     const payment = await mercadopago.payment.save(paymentData);
+//     if (payment.status !== "approved") {
+//       return res.status(400).json({
+//         error: "Payment was not approved",
+//       });
+//     }
+//     return res.sendStatus(200); // corregido: utilizar sendStatus para enviar el código de estado 200
+//   } catch (err) {
+//     console.error(err);
+//     return res.status(500).json({
+//       error: "Error creating order",
+//     });
+//   }
+// });
+
+// module.exports = router;
